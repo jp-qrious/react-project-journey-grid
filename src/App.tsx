@@ -77,10 +77,10 @@ const Maze: React.FC = () => {
     };
 
     useEffect(() => {
-        if (completed && fastTracked) {
+        if (completed) {
             setDialogOpen(true);
         }
-    }, [completed, fastTracked]);
+    }, [completed]);
 
     useEffect(() => {
         if (completed) {
@@ -122,15 +122,24 @@ const Maze: React.FC = () => {
                     Fast Track to Next Row
                 </Button>
             </div>}
-            {completed && fastTracked && (
+            {completed && (
                 <Dialog open={dialogOpen} onClose={() => setDialogOpen(false)}>
-                    <DialogTitle>{"I Know You Fast-tracked 😉"}</DialogTitle>
+                    <DialogTitle>
+                    {fastTracked ? (
+                                "I Know You Fast-tracked! 😉"
+                            ) : (
+                                "Did you really go through all of that?! 🥴"
+                            )}
+                    </DialogTitle>
                     <DialogContent>
                         <DialogContentText>
-                            A-ha, I noticed that you were tempted to fast-track a project. And for good reason.
-                            No project should be manually repetitive. This is exactly what Backstage does for you.
-                            With Backstage, you can automate the tedious steps and re-use these steps on other recipes that you create.
+                            {fastTracked ? (
+                                "A-ha, I noticed that you were tempted to fast-track a project. And for good reason. No project should be manually repetitive. This is exactly what Backstage does for you. With Backstage, you can automate the tedious steps and re-use these steps on other recipes that you create."
+                            ) : (
+                                "You've reached the goal without fast-tracking. While that's commendable, automation can help simplify your project journey."
+                            )}
                         </DialogContentText>
+
                     </DialogContent>
                     <DialogActions>
                         <Button onClick={() => setDialogOpen(false)} color="primary">
