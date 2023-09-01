@@ -82,6 +82,14 @@ const Maze: React.FC = () => {
         }
     }, [completed, fastTracked]);
 
+    useEffect(() => {
+        if (completed) {
+            setEmojiPositions(new Set<string>());
+        } else {
+            setEmojiPositions(generateRandomEmojiPositions(gridSize, 9));
+        }
+    }, [completed]);
+
     return (
         <Container className="maze-container">
             <Typography variant="h4" className="maze-title">
