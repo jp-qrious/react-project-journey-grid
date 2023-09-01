@@ -117,11 +117,11 @@ const Maze: React.FC = () => {
                 </Button>
             </div>
             {completed && <Typography variant="h5" className="completed" style={{ margin: '20px 0 10px' }}>Goal Reached!</Typography>}
-            <div style={{ display: 'flex', justifyContent: 'center', margin: '20px 0' }}>
+            {!completed && <div style={{ display: 'flex', justifyContent: 'center', margin: '20px 0' }}>
                 <Button variant="contained" color="secondary" onClick={fastTrackToNextRow}>
                     Fast Track to Next Row
                 </Button>
-            </div>
+            </div>}
             {completed && fastTracked && (
                 <Dialog open={dialogOpen} onClose={() => setDialogOpen(false)}>
                     <DialogTitle>{"I Know You Fast-tracked 😉"}</DialogTitle>
