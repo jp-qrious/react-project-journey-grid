@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel index.html"
+    "build": "parcel build index.html"
   },
   "keywords": [],
   "author": "",
