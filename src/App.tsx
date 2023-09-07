@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Container, Button, Grid, Typography } from '@mui/material';
 import { Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions } from '@mui/material';
 import './App.css';
+import WeaverLogo from '../images/logos/weaver.png';
+import BackstageLogo from '../images/logos/backstage.png';
 
 const Maze: React.FC = () => {
     const [position, setPosition] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
@@ -92,6 +94,22 @@ const Maze: React.FC = () => {
 
     return (
         <Container className="maze-container">
+            <div style={{"marginBottom": "20px"}}>
+                <img
+                    src={WeaverLogo}
+                    alt="Weaver Logo"
+                    className="weaver-logo" 
+                    width={200}
+                    height={200}/>
+                <img
+                    src={BackstageLogo}
+                    alt="Backstage Logo"
+                    className="backstage-logo" 
+                    width={200}
+                    height={200}
+                    style={{"float": "right"}}/>
+            </div>
+            <div style={{"clear": "both"}}></div>
             <Typography variant="h4" className="maze-title">
                 This is how you navigate a typical project
             </Typography>
